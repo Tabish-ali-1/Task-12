@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <h1>Currency Converter</h1>
+      <p class="subtitle">Live exchange rates powered by Frankfurter API</p>
+
+      <form id="converter-form" novalidate>
+        <label class="field-label" for="amount">Amount</label>
+        <input
+          id="amount"
+          name="amount"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="Enter amount"
+          required
+        />
+
+        <div class="currency-row">
+          <div>
+            <label class="field-label" for="from-currency">From Currency</label>
+            <input
+              id="from-search"
+              type="text"
+              placeholder="Search from currency"
+              autocomplete="off"
+            />
+            <ul id="from-search-results" class="search-results" hidden></ul>
+            <select id="from-currency" name="from-currency" required></select>
+          </div>
+
+          <button id="swap-btn" type="button" aria-label="Swap currencies">
+            ⇄
+          </button>
+
+          <div>
+            <label class="field-label" for="to-currency">To Currency</label>
+            <input
+              id="to-search"
+              type="text"
+              placeholder="Search to currency"
+              autocomplete="off"
+            />
+            <ul id="to-search-results" class="search-results" hidden></ul>
+            <select id="to-currency" name="to-currency" required></select>
+          </div>
+        </div>
+
+        <button id="convert-btn" type="submit">Convert</button>
+      </form>
+
+      <div id="status" class="status" aria-live="polite"></div>
+      <div id="result" class="result" aria-live="polite">
+        Converted amount will appear here.
+      </div>
+    </section>
+
+    <section class="card history-card">
+      <h2>Conversion History</h2>
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
